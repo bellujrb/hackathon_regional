@@ -1,0 +1,15 @@
+
+.slot {
+  flex: 1 1 300px;
+  padding: 6px;
+  min-width: 300px;
+  min-height: 400px;
+}
+
+[data-swapy-highlighted] {
+  background: #fff;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+}
