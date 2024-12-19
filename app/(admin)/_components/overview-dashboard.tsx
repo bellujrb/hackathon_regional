@@ -43,67 +43,54 @@ interface RecommendedLocation {
 const recommendedLocations: RecommendedLocation[] = [
   {
     id: 1,
-    name: "Porto Seco de Uruguaiana",
-    position: [-29.7614, -57.0853],
+    name: "Alegrete",
+    position: [-29.7844, -55.7903],
     description:
-      "Maior porto seco da América Latina, responsável por 60% das exportações terrestres no sul do Brasil.",
+      "Centro regional importante, com conexão logística para pequenos municípios do entorno.",
     data: {
-      industries: 120,
-      meis: 300,
-      fiscalTransactions: 50000,
-      economicImpact: "Alavanca exportações e movimentação intermunicipal.",
+      industries: 85,
+      meis: 250,
+      fiscalTransactions: 9575470,
+      economicImpact: "Facilita a distribuição de produtos agrícolas e industriais para a região.",
     },
   },
   {
     id: 2,
-    name: "Região Metropolitana de Porto Alegre",
-    position: [-30.0346, -51.2177],
+    name: "Barra do Quaraí",
+    position: [-30.2060, -57.5483],
     description:
-      "Principal polo industrial da região sul, movimentando mais de R$ 20 bilhões em transações intermunicipais anualmente.",
+      "Ponto estratégico para integração com o Uruguai, potencializando o comércio internacional.",
     data: {
-      industries: 450,
-      meis: 1200,
-      fiscalTransactions: 100000,
-      economicImpact: "Conecta cidades pequenas ao mercado consumidor urbano.",
+      industries: 20,
+      meis: 50,
+      fiscalTransactions: 2000000,
+      economicImpact: "Conecta mercados internacionais ao interior do Brasil.",
     },
   },
   {
     id: 3,
-    name: "Caxias do Sul",
-    position: [-29.1677, -51.1794],
+    name: "Manoel Viana",
+    position: [-29.5853, -55.4841],
     description:
-      "Centro industrial estratégico, ideal para pequenas cidades exportarem produtos manufaturados.",
+      "Município agrícola com alta dependência de cidades intermediadoras para escoamento de produção.",
     data: {
-      industries: 250,
-      meis: 800,
-      fiscalTransactions: 75000,
-      economicImpact: "Favorece o escoamento de produtos locais.",
+      industries: 15,
+      meis: 30,
+      fiscalTransactions: 3000000,
+      economicImpact: "Facilita o escoamento de produtos agrícolas para mercados maiores.",
     },
   },
   {
     id: 4,
-    name: "Pelotas",
-    position: [-31.7654, -52.3375],
+    name: "Uruguaiana",
+    position: [-29.7614, -57.0853],
     description:
-      "Polo de exportação agrícola e industrial, com alta conectividade logística ao Porto Seco de Uruguaiana.",
+      "Maior porto seco da América Latina, essencial para exportações terrestres no sul do Brasil.",
     data: {
-      industries: 200,
-      meis: 600,
-      fiscalTransactions: 60000,
-      economicImpact: "Aumenta a competitividade de pequenos municípios agrícolas.",
-    },
-  },
-  {
-    id: 5,
-    name: "Santana do Livramento",
-    position: [-30.8901, -55.5328],
-    description:
-      "Fronteira estratégica para integração com o Uruguai, movimentando R$ 10 bilhões em comércio exterior.",
-    data: {
-      industries: 80,
-      meis: 200,
-      fiscalTransactions: 30000,
-      economicImpact: "Conecta mercados internacionais ao interior do Brasil.",
+      industries: 120,
+      meis: 300,
+      fiscalTransactions: 15000000,
+      economicImpact: "Alavanca exportações e movimentação intermunicipal.",
     },
   },
 ];
@@ -111,20 +98,20 @@ const recommendedLocations: RecommendedLocation[] = [
 // Definindo conexões entre as cidades
 const connections = [
   {
-    from: recommendedLocations[0].position, // Uruguaiana
-    to: recommendedLocations[1].position, // Porto Alegre
+    from: recommendedLocations[0].position, // Alegrete
+    to: recommendedLocations[1].position, // Barra do Quaraí
   },
   {
-    from: recommendedLocations[1].position, // Porto Alegre
-    to: recommendedLocations[2].position, // Caxias do Sul
+    from: recommendedLocations[1].position, // Barra do Quaraí
+    to: recommendedLocations[3].position, // Uruguaiana
   },
   {
-    from: recommendedLocations[0].position, // Uruguaiana
-    to: recommendedLocations[4].position, // Santana do Livramento
+    from: recommendedLocations[0].position, // Alegrete
+    to: recommendedLocations[2].position, // Manoel Viana
   },
   {
-    from: recommendedLocations[3].position, // Pelotas
-    to: recommendedLocations[0].position, // Uruguaiana
+    from: recommendedLocations[2].position, // Manoel Viana
+    to: recommendedLocations[3].position, // Uruguaiana
   },
 ];
 
@@ -143,11 +130,11 @@ export default function OverviewDashboard() {
     <div className="p-4 bg-white rounded-lg">
       <h3 className="text-lg font-bold">Mapa de Locais Recomendados</h3>
       <p>
-        Este mapa destaca as cidades intermediadoras, pequenos municípios, e o impacto do Porto Seco de Uruguaiana.
+        Este mapa destaca as cidades intermediadoras, pequenos municípios, e o impacto econômico e logístico da região sul do Brasil.
       </p>
       <div className="w-full h-[500px] rounded-lg overflow-hidden mt-4">
         <MapContainer
-          center={[-30.0346, -51.2177]} // Centralizado no Sul do Brasil
+          center={[-29.7614, -57.0853]} // Centralizado na região sul
           zoom={7}
           style={{ height: "100%", width: "100%" }}
         >
@@ -169,7 +156,7 @@ export default function OverviewDashboard() {
                   <br />
                   <strong>MEIs:</strong> {location.data.meis}
                   <br />
-                  <strong>Transações Fiscais:</strong> {location.data.fiscalTransactions}
+                  <strong>Transações Fiscais:</strong> R$ {location.data.fiscalTransactions.toLocaleString()}
                   <br />
                   <strong>Impacto Econômico:</strong> {location.data.economicImpact}
                 </p>

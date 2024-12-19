@@ -28,33 +28,34 @@ interface Cidade {
 const cidades: Cidade[] = [
     {
         nome: "Porto Alegre",
-        conexoes: 12,
-        populacaoImpactada: 1500000,
-        transacoesIntermunicipais: 15000000,
-        empregosGerados: 5000,
+        conexoes: 10, // Número moderado de conexões relevantes.
+        populacaoImpactada: 120000, // População diretamente conectada.
+        transacoesIntermunicipais: 25000000, // R$ 25 milhões em transações.
+        empregosGerados: 1500, // Empregos formais gerados nas conexões.
     },
     {
         nome: "Caxias do Sul",
-        conexoes: 8,
-        populacaoImpactada: 800000,
-        transacoesIntermunicipais: 8000000,
-        empregosGerados: 3000,
+        conexoes: 7, // Conexões industriais e logísticas.
+        populacaoImpactada: 80000, // População atendida nas conexões.
+        transacoesIntermunicipais: 15000000, // R$ 15 milhões em negócios.
+        empregosGerados: 1200, // Empregos locais e regionais gerados.
     },
     {
         nome: "Pelotas",
-        conexoes: 5,
-        populacaoImpactada: 600000,
-        transacoesIntermunicipais: 6000000,
-        empregosGerados: 2000,
+        conexoes: 5, // Conexões com foco no setor agrícola.
+        populacaoImpactada: 60000, // População conectada no entorno.
+        transacoesIntermunicipais: 10000000, // R$ 10 milhões em transações.
+        empregosGerados: 800, // Empregos relacionados a comércio e agricultura.
     },
     {
         nome: "Uruguaiana",
-        conexoes: 10,
-        populacaoImpactada: 400000,
-        transacoesIntermunicipais: 12000000,
-        empregosGerados: 4000,
+        conexoes: 8, // Conexões regionais e internacionais.
+        populacaoImpactada: 50000, // População impactada pelas transações.
+        transacoesIntermunicipais: 12000000, // R$ 12 milhões movimentados.
+        empregosGerados: 1000, // Empregos diretos e indiretos gerados.
     },
 ];
+
 
 export function CityConnectionsPage() {
     const [selectedCity, setSelectedCity] = useState<Cidade | null>(cidades[0]);
